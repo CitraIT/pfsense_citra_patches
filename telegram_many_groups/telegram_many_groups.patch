@@ -52,3 +52,16 @@
 +               if (preg_replace("/[^a-zA-Z0-9@_:\-]/", "", $config['notifications']['telegram']['chatid']) !== $config['notifications']['telegram']['chatid']) {
                         $input_errors[] = gettext("The Chat ID can only contain @, _ or - as special characters");
                 }
+
+
+--- /usr/local/www/system_advanced_notifications.php.orig      2022-04-30 00:12:30.183830000 +0000
++++ /usr/local/www/system_advanced_notifications.php   2022-04-30 00:12:40.395526000 +0000
+@@ -234,7 +234,7 @@
+        $pconfig['chatid'],
+        ['placeholder' => '123456789']
+
+-))->setHelp('Enter the chat ID number (private) or channel @username (public) that will be used to send the notifications to.');
++))->setHelp('Enter the chat ID number (private) or channel @username (public) that will be used to send the notifications to.<br/>Use colon (:) to separate multiple chat ids.');
+
+ $section->addInput(new Form_Button(
+        'test-telegram',
