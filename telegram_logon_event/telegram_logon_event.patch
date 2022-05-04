@@ -1,0 +1,10 @@
+--- /etc/inc/util.inc.orig       2022-05-04 01:45:18.506816000 +0000
++++ /etc/inc/util.inc    2022-05-04 13:40:15.434262000 +0000
+@@ -1786,6 +1786,7 @@
+        global $g;
+        $page = $_SERVER['SCRIPT_NAME'];
+        syslog(LOG_AUTH, "$page: $error");
++       notify_all_remote($error);
+        if ($g['debug']) {
+                syslog(LOG_WARNING, var_dump(debug_backtrace()));
+        }
