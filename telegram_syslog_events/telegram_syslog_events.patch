@@ -1,0 +1,10 @@
+--- /etc/inc/util.inc.orig       2022-05-04 01:38:30.380008000 +0000
++++ /etc/inc/util.inc    2022-05-04 01:42:32.081700000 +0000
+@@ -1768,6 +1768,7 @@
+                $page = basename($files[0]);
+        }
+        syslog(LOG_ERR, "$page: $error");
++       notify_all_remote($error);
+        if ($g['debug']) {
+                syslog(LOG_WARNING, var_dump(debug_backtrace()));
+        }
