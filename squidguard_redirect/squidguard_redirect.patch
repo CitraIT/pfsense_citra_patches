@@ -1,0 +1,10 @@
+--- /usr/local/pkg/squidguard_configurator.inc.orig    2022-05-21 04:01:00.310260000 -0300
++++ /usr/local/pkg/squidguard_configurator.inc 2022-05-21 04:02:48.908011000 -0300
+@@ -1348,7 +1348,7 @@
+                        break;
+                case RMOD_INT_ERRORPAGE:
+                default:
+-                       $rdr_path .= "?url=" . rawurlencode("403 $rdr_info") . REDIRECT_URL_ARGS;
++                       $rdr_path = "302:$rdr_path?url=403%20" . REDIRECT_URL_ARGS;
+                        break;
+        }
