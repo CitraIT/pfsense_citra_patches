@@ -1,10 +1,10 @@
---- /etc/inc/util.inc.orig       2022-05-04 01:45:18.506816000 +0000
-+++ /etc/inc/util.inc    2022-05-04 13:40:15.434262000 +0000
-@@ -1786,6 +1786,7 @@
-        global $g;
+--- util.inc.original   2023-09-11 19:10:02.924434000 -0300
++++ util.inc    2023-09-11 19:12:48.145870000 -0300
+@@ -1886,6 +1886,7 @@
         $page = $_SERVER['SCRIPT_NAME'];
-        syslog(LOG_AUTH, "$page: $error");
+        $level = config_path_enabled('system/webgui', 'quietlogin') ? LOG_NOTICE|LOG_AUTH : LOG_AUTH;
+        syslog($level, "{$page}: {$error}");
 +       notify_all_remote($error);
-        if ($g['debug']) {
-                syslog(LOG_WARNING, var_dump(debug_backtrace()));
+        if (g_get('debug')) {
+                syslog(LOG_WARNING, var_export(debug_backtrace()));
         }
