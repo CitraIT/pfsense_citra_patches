@@ -1,5 +1,5 @@
---- util.inc.original   2023-09-11 19:10:02.924434000 -0300
-+++ util.inc    2023-09-11 19:12:48.145870000 -0300
+--- /etc/inc/util.inc.original   2023-09-11 19:10:02.924434000 -0300
++++ /etc/inc/util.inc    2023-09-11 19:12:48.145870000 -0300
 @@ -1886,6 +1886,7 @@
         $page = $_SERVER['SCRIPT_NAME'];
         $level = config_path_enabled('system/webgui', 'quietlogin') ? LOG_NOTICE|LOG_AUTH : LOG_AUTH;
